@@ -1,0 +1,25 @@
+1) ссылка на другую страницу в шаблоне.
+
+    пример ссылки в django на другую страницу при помощи обращения по имени функции обработчика:
+    
+        <li><a href="{% url 'articles' %}">Статьи</a></li>
+
+    вот пример функции обработчика:
+
+        def articles(request):
+            return render(request, "articles.html")
+
+    также для работы нужно указать name внутри функции path() внутри переменной urlpatterns
+
+
+
+2) в urls.py можно сослаться на другие приложения внутри urlpatterns:
+
+    path("articles/", include("hexlet_django_blog.article.urls")),
+
+        (все пути, которые начинаются с "articles/", 
+        будут перенаправляться в 
+        hexlet_django_blog.article.urls)
+
+
+3) 
